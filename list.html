@@ -44,8 +44,41 @@
                 document.getElementById('toggle-scanner-button').textContent = 'Start Scanner';
                 scannerActive = false;
             }
+            
         });
+// Initialize QR Code reader
+const scanner = new Instascan.Scanner({ video: document.getElementById('qr-code-reader') });
 
+scanner.addListener('scan', function (content) {
+    // Add scanned content to the list
+    const listItem = document.createElement('li');
+    listItem.textContent = content;
+    document.getElementById('qr-code-list').appendChild(listItem);
+});
+
+// Initialize Copy to Clipboard functionality
+const copyButton = document.getElementById('copy-button');
+copyButton.addEventListener('click', function () {
+    const listItems = document.getElementById('qr-code-list').getElementsByTagName('li');
+    const clipboardText = Array.from(listItems).map(item => item.textContent).join('\n');
+    copyTextToClipboard(clipboardText);
+});
+
+// Function to copy text to clipboard
+function copyTextToClipboard(text) {
+    // Implement clipboard copying logic (e.g., using clipboard.js or document.execCommand)
+}
+
+// Start the QR code scanner
+Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+        scanner.start(cameras[0]);
+    } else {
+        console.error('No cameras found.');
+    }
+}).catch(function (error) {
+    console.error(error);
+});
         // Other QR code scanning and clipboard copy logic (as shown in the previous response)
     </script>
 </body>
