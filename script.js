@@ -1,8 +1,38 @@
-// JavaScript function to handle successful QR code scans.
+const qrCodeList = [];
+
+
+
 function onScanSuccess(qrCodeText, qrCodeResult) {
+  // Add the scanned QR code to the list of scanned QR codes.
+  qrCodeList.push(qrCodeText);
+
   // Display an alert with the decoded QR code text and result.
   alert(`Code matched = ${qrCodeText}`, qrCodeResult);
 }
+
+function copyQrCodeListToClipboard() {
+  // Get the text of the QR code list.
+  const qrCodeListText = qrCodeList.join('\n');
+
+  // Create a new TextRange object.
+  const textRange = document.createRange();
+
+  // Select the QR code list text.
+  textRange.selectNodeContents(document.getElementById('qr-code-list-items'));
+
+  // Add the QR code list text to the clipboard.
+  window.getSelection().addRange(textRange);
+
+  // Copy the QR code list text to the clipboard.
+  document.execCommand('copy');
+
+  // Remove the TextRange object from the DOM.
+  textRange.detach();
+
+  // Display an alert to let the user know that the QR code list has been copied to the clipboard.
+  alert('QR code list copied to clipboard!');
+}
+
 
 // JavaScript function to handle failed QR code scans.
 function onScanFailure(error) {
