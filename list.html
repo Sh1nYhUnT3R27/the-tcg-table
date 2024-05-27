@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Reader</title>
     <style>
-        #qr-reader { width: 500px; }
+        #qr-reader { width: 500px; display: none; }
         #results { margin-top: 20px; }
         #copy-button { margin-top: 10px; }
+        #control-buttons { margin-top: 10px; }
     </style>
     <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 </head>
 <body>
     <h1>QR Code Reader</h1>
+    <div id="control-buttons">
+        <button id="start-button">Start QR Reader</button>
+        <button id="stop-button" disabled>Stop QR Reader</button>
+    </div>
     <div id="qr-reader"></div>
     <div id="results">
         <h2>Scanned QR Codes</h2>
@@ -23,7 +28,11 @@
     <script>
         const resultsList = document.getElementById('qr-results');
         const copyButton = document.getElementById('copy-button');
+        const startButton = document.getElementById('start-button');
+        const stopButton = document.getElementById('stop-button');
+        const qrReader = document.getElementById('qr-reader');
         let scannedContents = [];
+        let qrCodeScanner;
 
         function onScanSuccess(decodedText, decodedResult) {
             if (!scannedContents.includes(decodedText)) {
@@ -34,18 +43,36 @@
             }
         }
 
-        const qrCodeScanner = new Html5Qrcode("qr-reader");
-        qrCodeScanner.start(
-            { facingMode: "environment" }, 
-            { fps: 10, qrbox: 250 }, 
-            onScanSuccess
-        );
+        startButton.addEventListener('click', () => {
+            qrReader.style.display = 'block';
+            qrCodeScanner = new Html5Qrcode("qr-reader");
+            qrCodeScanner.start(
+                { facingMode: "environment" },
+                { fps: 10, qrbox: 250 },
+                onScanSuccess
+            ).then(() => {
+                startButton.disabled = true;
+                stopButton.disabled = false;
+            }).catch(err => {
+                console.error('Error starting QR scanner:', err);
+            });
+        });
+
+        stopButton.addEventListener('click', () => {
+            qrCodeScanner.stop().then(() => {
+                qrReader.style.display = 'none';
+                startButton.disabled = false;
+                stopButton.disabled = true;
+            }).catch(err => {
+                console.error('Error stopping QR scanner:', err);
+            });
+        });
 
         copyButton.addEventListener('click', () => {
             const textToCopy = scannedContents.join('\n');
             navigator.clipboard.writeText(textToCopy)
                 .then(() => alert('List copied to clipboard!'))
-                .catch(err => console.error('Error copying text: ', err));
+                .catch(err => console.error('Error copying text:', err));
         });
     </script>
 </body>
