@@ -6,3 +6,4 @@ document.addEventListener('DOMContentLoaded', function() {
     navList.classList.toggle('active');
   });
 });
+
