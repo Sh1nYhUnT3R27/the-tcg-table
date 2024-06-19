@@ -6,10 +6,19 @@ body, ul, li {
   font-family: Arial, sans-serif;
 }
 
-/* Navbar styles */
-.navbar {
+header {
   background-color: #333;
   padding: 10px 0;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Navbar styles */
+.navbar {
   position: relative;
 }
 
@@ -30,7 +39,6 @@ body, ul, li {
   align-items: center;
 }
 
-/* Nav item styles */
 .nav-item {
   margin: 0 15px;
 }
@@ -44,7 +52,6 @@ body, ul, li {
   transition: background-color 0.3s ease;
 }
 
-/* Nav link hover effect */
 .nav-link:hover {
   background-color: #575757;
   border-radius: 4px;
@@ -76,9 +83,5 @@ body, ul, li {
 @media (min-width: 800px) {
   body {
     background-color: black;
-  }
-
-  h1 {
-    text-align: center;
   }
 }
