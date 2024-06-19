@@ -6,6 +6,12 @@ body, ul, li {
   font-family: Arial, sans-serif;
 }
 
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header styles */
 header {
   background-color: #333;
   padding: 10px 0;
@@ -20,6 +26,7 @@ h1 {
 /* Navbar styles */
 .navbar {
   position: relative;
+  background-color: #333;
 }
 
 /* Nav toggle button styles */
@@ -30,6 +37,9 @@ h1 {
   color: white;
   font-size: 24px;
   cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 15px;
 }
 
 /* Nav list styles */
@@ -37,6 +47,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 .nav-item {
@@ -70,9 +81,6 @@ h1 {
 
   .nav-toggle {
     display: block;
-    position: absolute;
-    right: 10px;
-    top: 15px;
   }
 
   .nav-item {
@@ -83,5 +91,9 @@ h1 {
 @media (min-width: 800px) {
   body {
     background-color: black;
+  }
+
+  h1 {
+    text-align: center;
   }
 }
