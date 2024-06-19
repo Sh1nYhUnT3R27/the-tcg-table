@@ -1,13 +1,4 @@
-body {
-  color: red;
-}
 
-
-@media (min-width: 800px) {
-  body {
-    background-color: black;
-  }
-}
 
 
 /* Basic reset */
@@ -60,4 +51,12 @@ body, ul, li {
   .nav-item {
     margin: 10px 0;
   }
+
+  
+
+@media (min-width: 800px) {
+  body {
+    background-color: black;
+  }
+}
 }
