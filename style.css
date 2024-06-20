@@ -1,92 +1,61 @@
 /* Basic reset */
 body, ul, li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background-color: #f4f4f4;
-  color: #333;
-}
-
-/* Header styles */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
-  color: white;
-}
-
-.logo {
-  margin: 0;
-  font-size: 24px;
+margin: 0;
+padding: 0;
+list-style: none;
+font-family: Arial, sans-serif;
 }
 
 /* Navbar styles */
 .navbar {
-  position: relative;
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
+background-color: #333;
+padding: 10px 0;
 }
 
 /* Nav list styles */
 .nav-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
+/* Nav item styles */
 .nav-item {
-  margin: 0 15px;
+margin: 0 15px;
 }
 
+/* Nav link styles */
 .nav-link {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 8px 15px;
-  transition: background-color 0.3s ease;
+color: white;
+text-decoration: none;
+font-size: 18px;
+padding: 8px 15px;
+transition: background-color 0.3s ease;
 }
 
-.nav-link:hover {
-  background-color: #575757;
-  border-radius: 4px;
+/* Nav link hover effect */
+.nav-link
+{
+background-color: #575757;
+border-radius: 4px;
 }
 
 /* Responsive design */
 @media (max-width: 800px) {
-  .nav-list {
-    flex-direction: column;
-    display: none;
-  }
+.nav-list {
+flex-direction: column;
+}
 
-  .nav-list.active {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-item {
-    margin: 10px 0;
-  }
+.nav-item {
+margin: 10px 0;
 }
 
 @media (min-width: 800px) {
-  body {
-    background-color: black;
-  }
+body {
+background-color: black;
+}
+}
+h1 {
+text-align: center;
+}
 }
