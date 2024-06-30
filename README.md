@@ -1,2 +1,2 @@
 # the-tcg-table
-Website for the TCG Table Discord
+Website for the TCG Table 
