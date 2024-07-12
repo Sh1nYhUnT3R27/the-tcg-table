@@ -25,6 +25,7 @@
   <style>
     body {
       background-image: url("https://github.com/Sh1nYhUnT3R27/the-tcg-table/blob/main/assets/backgroundimg.jpg?raw=true");
+      overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     #intro {
       color: white;
@@ -46,23 +47,23 @@
     .bottom-space {
       margin-bottom: 40px; /* Added space at the bottom of the last element */
     }
-    #btm-nav {
+    footer {
       background-color: #343a40;
       color: white;
       padding: 40px 0;
       margin-top: 20px; /* Added margin-top for footer */
     }
-    #btm-nav a {
+    footer a {
       color: white;
       text-decoration: none;
     }
-    #btm-nav a:hover {
+    footer a:hover {
       text-decoration: underline;
     }
-    #btm-nav-column {
+    .footer-column {
       margin-bottom: 20px;
     }
-    #btm-nav-title {
+    .footer-title {
       font-family: "Fjalla One", sans-serif;
       font-size: 1.2rem;
       margin-bottom: 20px;
@@ -111,7 +112,7 @@
       <iframe class="mx-auto d-block" width="420" height="345" src="https://www.youtube.com/embed/ZUPvoo5aUhM"></iframe>
     </div>
   </div>
-  <footer id="btm-nav">
+  <footer>
     <div class="container">
       <div class="row">
         <div class="col-md-3 footer-column">
